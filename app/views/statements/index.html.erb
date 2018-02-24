@@ -8,4 +8,6 @@
 
 <p> <%= image_tag statement.image.url(:medium) %>  </p>
 
+<%= link_to "See evidence", statement_path(statement.id) %>
+
 <% end %>
