@@ -22,11 +22,13 @@ feature 'evidence feed' do
 
   scenario 'edit a file' do
     page.all(:link, "Tamper")[1].click
+    attach_file('statement[image]', 'spec/files/images/lawyer2.jpg')
     fill_in :Evidence, with: 'Ouch...this is not good'
     click_button 'Permanently change'
     expect(page).to have_content('Evidence changed mate')
     expect(page).to have_content('Ouch...this is not good')
+    expect(page).to have_css('img[src*="lawyer2.jpg"]')
     expect(page).not_to have_content('This is the second')
-    expect(page).to have_css('img[src*="lawyer.jpg"]')
+    expect(page).not_to have_css('img[src*="lawyer.jpg"]')
   end
 end
