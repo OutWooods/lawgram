@@ -1,4 +1,6 @@
 class StatementsController < ApplicationController
+  before_action :set_statement, only: [:show, :edit, :update, :destroy]
+
   def index
     @statements = Statement.all
   end
@@ -8,15 +10,12 @@ class StatementsController < ApplicationController
   end
 
   def show
-    @statement = Statement.find(params[:id])
   end
 
   def edit
-    @statement = Statement.find(params[:id])
   end
 
   def update
-    @statement = Statement.find(params[:id])
     @statement.update(statement_params)
     flash[:success] = 'Evidence changed mate'
     redirect_to @statement
@@ -34,7 +33,6 @@ class StatementsController < ApplicationController
   end
 
   def destroy
-    @statement = Statement.find(params[:id])
     @statement.destroy
     flash[:success] = 'Evidence destroyed'
     redirect_to statements_path
@@ -44,6 +42,10 @@ class StatementsController < ApplicationController
 
   def statement_params
     params.require(:statement).permit(:evidence, :image)
+  end
+
+  def set_statement
+    @statement = Statement.find(params[:id])
   end
 
   def get_errors(object)
