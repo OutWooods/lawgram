@@ -22,7 +22,8 @@ class StatementsController < ApplicationController
   end
 
   def create
-    if   @statement = Statement.create(statement_params)
+     @statement = Statement.create(statement_params)
+    if  @statement.save 
       flash[:success] = 'Evidence submitted'
       redirect_to @statement
     else
