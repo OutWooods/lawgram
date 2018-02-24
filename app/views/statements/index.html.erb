@@ -1,3 +1,11 @@
 <h1>Hello!!!</h1>
 
 <%= link_to "New Statement", new_statement_path %>
+
+<% @statements.each do |statement| %>
+
+<p> <%= statement.evidence %>  </p>
+
+<p> <%= image_tag statement.image.url(:medium) %>  </p>
+
+<% end %>
