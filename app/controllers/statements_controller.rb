@@ -7,9 +7,11 @@ class StatementsController < ApplicationController
   end
 
   def create
-    p statement_params
-    @statement = Statement.new(statement_params)
+    @statement = Statement.create(statement_params)
     p @statement
+    p @statement.save
+
+    redirect_to @statement
   end
 
   private
