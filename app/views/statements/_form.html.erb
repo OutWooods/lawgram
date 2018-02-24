@@ -1,5 +1,5 @@
 <%= simple_form_for @statement do |statement| %>
    <%= statement.input :evidence %>
    <%= statement.file_field :image  %>
-   <%= statement.submit 'Create Statement' %>
+   <%= statement.submit locals %>
 <% end %>
