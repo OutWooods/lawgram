@@ -6,11 +6,12 @@ class StatementsController < ApplicationController
    @statement = Statement.new
   end
 
+  def show
+    @statement = Statement.find(params[:id])
+  end
+
   def create
     @statement = Statement.create(statement_params)
-    p @statement
-    p @statement.save
-
     redirect_to @statement
   end
 
