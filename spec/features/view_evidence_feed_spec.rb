@@ -31,4 +31,11 @@ feature 'evidence feed' do
     expect(page).not_to have_content('This is the second')
     expect(page).not_to have_css('img[src*="lawyer.jpg"]')
   end
+
+  scenario 'delete a post' do
+    page.all(:link, "Destroy Evidence")[1].click
+    expect(page).not_to have_content('This si the second')
+    expect(page).to have_content('Evidence destroyed')
+    expect(page).to have_content('This is the first')
+  end
 end
