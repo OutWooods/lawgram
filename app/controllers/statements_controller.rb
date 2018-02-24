@@ -16,7 +16,10 @@ class StatementsController < ApplicationController
   end
 
   def update
-
+    @statement = Statement.find(params[:id])
+    @statement.update(statement_params)
+    flash[:success] = 'Evidence changed mate'
+    redirect_to @statement
   end
 
   def create
