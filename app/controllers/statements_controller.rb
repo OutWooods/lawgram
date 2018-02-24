@@ -12,6 +12,7 @@ class StatementsController < ApplicationController
 
   def create
     @statement = Statement.create(statement_params)
+    p @statement.errors.messages
     redirect_to @statement
   end
 

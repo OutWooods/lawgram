@@ -31,3 +31,15 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    models:
+      statement:
+    attributes:
+      statement:
+        image: "Photo"
+    errors:
+      models:
+        statement:
+          attributes:
+            image:
+              blank: "No no, you silly lawyer...you need an %{attribute}"
