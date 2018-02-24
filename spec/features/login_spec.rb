@@ -9,6 +9,6 @@ feature 'login' do
     fill_in 'Password confirmation', with: 'iamawesome'
     click_button 'Sign up'
     expect(page).to have_current_path('/')
-    expect(page).to have_content('Welcome awesome Lawyer!')
+    expect(page).to have_content('Welcome! You have joined the greatest website ever. Good move!')
   end
 end
