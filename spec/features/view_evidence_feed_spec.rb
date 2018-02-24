@@ -22,7 +22,7 @@ feature 'evidence feed' do
 
   scenario 'edit a file' do
     page.all(:link, "Tamper")[1].click
-    fill_in :capiton, with: 'Ouch...this is not good'
+    fill_in :Evidence, with: 'Ouch...this is not good'
     click_button 'Permanently change'
     expect(page).to have_content('Evidence changed mate')
     expect(page).to have_content('Ouch...this is not good')
