@@ -33,6 +33,13 @@ class StatementsController < ApplicationController
     end
   end
 
+  def destroy
+    @statement = Statement.find(params[:id])
+    @statement.destroy
+    flash[:success] = 'Evidence destroyed'
+    redirect_to statements_path
+  end
+
   private
 
   def statement_params
@@ -46,5 +53,6 @@ class StatementsController < ApplicationController
     }
     message_chain
   end
+
 
 end

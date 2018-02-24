@@ -10,5 +10,6 @@
 
 <%= link_to "See evidence", statement_path(statement.id) %>
 <%= link_to "Tamper", edit_statement_path(statement.id) %>
+<%= link_to "Destroy Evidence", statement_path(statement), method: :delete %>
 
 <% end %>
