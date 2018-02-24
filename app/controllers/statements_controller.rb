@@ -12,14 +12,27 @@ class StatementsController < ApplicationController
 
   def create
     @statement = Statement.create(statement_params)
-    p @statement.errors.messages
-    redirect_to @statement
+    if @statement.save
+      flash[:success] = 'Evidence submitted'
+      redirect_to @statement
+    else
+      flash[alert] = get_errors(@statement)
+      render :new
+    end
   end
 
   private
 
   def statement_params
     params.require(:statement).permit(:evidence, :image)
+  end
+
+  def get_errors(object)
+    message_chain = ''
+    object.errors.messages.each_value { |section|
+      section.each { |issue|  message_chain += issue.to_s }
+    }
+    message_chain
   end
 
 end
